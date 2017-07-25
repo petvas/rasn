@@ -1,5 +1,4 @@
 const crypto = require('crypto');
-const hash = crypto.createHash('sha256')
 
 module.exports = function (sequelize, DataTypes) {
     const User = sequelize.define('user', {
@@ -10,7 +9,7 @@ module.exports = function (sequelize, DataTypes) {
         password: {
             type: DataTypes.VIRTUAL,
             set: function (val) {
-                                
+                const hash = crypto.createHash('sha256')
                 this.salt = 'SALT-';
                 //this.setDataValue('password', val)
                 this.setDataValue('password_hash', hash.update(this.salt + val).digest('hex'))
