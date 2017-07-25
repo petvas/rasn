@@ -6,7 +6,6 @@ const restify = require('restify')
 const app = server = restify.createServer()
 app.use(restify.plugins.queryParser()) // Parses URL query paramters into req.query.
 app.use(restify.plugins.bodyParser()) // parses POST bodies to req.body. automatically
-app.use(restify.plugins.jsonBodyParser()) // parses JSON POST bodies
 app.use(restify.plugins.jsonp()) // not work :(
 app.use(restify.plugins.gzipResponse()) // gzips the response if client accepts it
 
