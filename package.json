@@ -10,6 +10,8 @@
   "author": "Peter Vaszari",
   "license": "MIT",
   "dependencies": {
+    "@types/restify": "^5.0.1",
+    "@types/sequelize": "^4.0.67",
     "epilogue": "^0.7.1",
     "restify": "^5.0.0",
     "sequelize": "^4.3.2",
@@ -17,6 +19,7 @@
     "sqlite3": "^3.1.8"
   },
   "devDependencies": {
+    "@types/gulp": "^4.0.4",
     "gulp": "^3.9.1"
   }
 }
