@@ -13,6 +13,10 @@
     "epilogue": "^0.7.1",
     "restify": "^5.0.0",
     "sequelize": "^4.3.2",
+    "sequelize-cli": "^2.7.0",
     "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }
