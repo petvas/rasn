@@ -1,7 +1,5 @@
-const Sequelize = require('sequelize')
 const epilogue = require ('epilogue')
 const restify = require('restify')
-
 
 const app = server = restify.createServer()
 app.use(restify.plugins.queryParser()) // Parses URL query paramters into req.query.
@@ -12,23 +10,18 @@ app.use(restify.plugins.gzipResponse()) // gzips the response if client accepts 
 // import routes
 require('./routes')(server, restify)
 
-const sequelize = new Sequelize('database', '', '', {
-    dialect: 'sqlite',
-    storage: './db/database.sqlite'
-})
-const models = require('./models')(sequelize)
-
-//sequelize.sync()
+const models = require('./models')
+//models.sequelize.sync()
 
 epilogue.initialize({
     app: app,
-    sequelize: sequelize
+    sequelize: models.sequelize
 })
 
 // Import REST resource
 const resources = require('./resources')(epilogue, models)
 
-sequelize
+models.sequelize
     .authenticate()
     .then(() => {
         console.log(' Database connection has been established successfully.')
