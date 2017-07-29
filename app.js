@@ -17,17 +17,18 @@ const sequelize = new Sequelize('database', '', '', {
 })
 const models = require('./models')(sequelize)
 
+//sequelize.sync()
+
 epilogue.initialize({
     app: app,
     sequelize: sequelize
 })
 
-// Create REST resource
+// Import REST resource
 const resources = require('./resources')(epilogue, models)
 
 sequelize
-    //.authenticate()
-    .sync(/*{ force: true }*/) // DANGER
+    .authenticate()
     .then(() => {
         console.log(' Database connection has been established successfully.')
         server.listen(process.env.PORT || 3000, process.env.HOST || 'localhost', function () {
