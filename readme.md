@@ -9,3 +9,4 @@ This is a litle boilerplate for rapid demo developing.
 * Generate models descriptions for client
 * Usergroups, right for use restfull endpoint
 * Admin menu
+* Generate Client API like: https://github.com/google/google-api-nodejs-client/blob/master/apis/youtube/v3.ts
