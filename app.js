@@ -9,7 +9,8 @@ app.use(restify.plugins.bodyParser()) // parses POST bodies to req.body. automat
 app.use(restify.plugins.jsonp()) // not work :(
 app.use(restify.plugins.gzipResponse()) // gzips the response if client accepts it
 
-require('./routes')(server)
+// import routes
+require('./routes')(server, restify)
 
 const sequelize = new Sequelize('database', '', '', {
     dialect: 'sqlite',

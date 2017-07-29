@@ -1,11 +1,11 @@
 const fs = require('fs')
 const path = require('path')
 
-module.exports = function (server) {
+module.exports = function (server, restify) {
     fs
         .readdirSync(__dirname)
         .filter((fileName) => fileName.indexOf('.') && fileName !== path.basename(__filename))
         .forEach(function (fileName) {
-            require(path.join(__dirname, fileName))(server)
+            require(path.join(__dirname, fileName))(server, restify)
         })
 }

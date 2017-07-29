@@ -1,8 +1,8 @@
-const homeRoute = function (server) {
-    server.get('/', function (req, res, next) {
-        res.send({msg: 'home'})
-        next()
-    })
+const homeRoute = function (server, restify) {
+    server.get('/', restify.plugins.serveStatic({
+        directory: './public',
+        default: '/index.html'
+    }))
 }
 
 module.exports = homeRoute
